@@ -130,7 +130,6 @@ body {
 }
 
 .collector {
-  width: 100%;
   padding: 10px;
   border-radius: 10px;
   background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
