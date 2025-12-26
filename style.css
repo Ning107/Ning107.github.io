@@ -1,0 +1,293 @@
+body {
+  background: #0b0f2a;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 18px auto;
+  padding: 0 12px;
+}
+
+/* Card base */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+  align-items: start;
+}
+
+.left .sky {
+  position: relative;
+  height: 480px;
+  background: radial-gradient(circle at bottom, #1a1f5c, #020316);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* make sky look like a card */
+.left .sky.card {
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.7);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.star {
+  offset-rotate: 0deg;
+  will-change: transform, offset-distance;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(145deg, #ffe066, #ffb703);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  cursor: pointer;
+  box-shadow:
+    0 0 6px rgba(255, 224, 102, 0.8),
+    0 0 12px rgba(255, 183, 3, 0.6);
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 1s;
+}
+
+.star:hover {
+  transform: scale(1.3) rotate(15deg);
+}
+
+
+.star.fall {
+  transform: translateY(450px) scale(0.2);
+  opacity: 0;
+}
+
+.bucket {
+  margin-top: 16px;
+  padding: 12px;
+  background: #141852;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.collector {
+  margin-top: 20px;
+}
+
+.event-creator {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 8px 20px rgba(2,6,23,0.55);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.event-creator .ec-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.event-creator label {
+  width: 56px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.collectors {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+  max-height: 420px;
+  overflow: auto;
+}
+
+.collector {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  box-shadow: 0 8px 24px rgba(2,6,23,0.5);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.collector-header {
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  justify-content: space-between;
+}
+
+.collector-left { display:flex; align-items:center; gap:10px; }
+.collector-right { display:flex; align-items:center; gap:10px; }
+
+.collector-minutes {
+  font-size: 12px;
+  opacity: 0.9;
+  background: rgba(0,0,0,0.16);
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.collector-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.collector-actions .collector-btn { padding:6px 10px; font-size:13px; }
+.collector-actions .collector-btn.rename { background: rgba(255,255,255,0.03); }
+.collector-actions .collector-btn.delete { background: rgba(255,80,80,0.12); }
+
+.collector-title {
+  font-size: 15px;
+  opacity: 0.95;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.collector .color-swatch {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.25);
+}
+
+.collector-minutes {
+  margin-left: auto;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.collector-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.collector-btn {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.collector-btn.delete {
+  background: rgba(255,80,80,0.12);
+  border-color: rgba(255,80,80,0.18);
+}
+
+.collector-btn.rename {
+  background: rgba(255,255,255,0.03);
+}
+
+.collector-box {
+  position: relative;
+  height: 140px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(20,22,54,0.9), rgba(8,9,28,0.9));
+  border: 1px solid rgba(255,255,255,0.03);
+  overflow: hidden;
+  padding: 8px;
+}
+
+.collector.active {
+  box-shadow: 0 12px 34px rgba(2,6,23,0.65), 0 0 0 2px rgba(255,255,255,0.03) inset;
+  transform: translateY(-4px);
+}
+
+@media (max-width: 900px) {
+  .main { grid-template-columns: 1fr; }
+  .left .sky { height: 420px; }
+  .side { order: 2; }
+}
+
+.star.assigned {
+  outline: 2px solid rgba(255,255,255,0.06);
+  filter: saturate(1.05) brightness(1.02);
+}
+
+.collector-range {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-left: 8px;
+}
+
+.collector-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.collector-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.collector-actions .collector-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.collector-actions .collector-btn:hover { transform: translateY(-2px); }
+
+.collector-actions .collector-btn.delete { background: rgba(255,80,80,0.12); border-color: rgba(255,80,80,0.18); }
+
+.collector-left input[type="radio"] { transform: scale(1.05); }
+
+.collector-estimate {
+  font-size: 12px;
+  opacity: 0.85;
+  background: rgba(255,255,255,0.02);
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.bucket {
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 8px 20px rgba(2,6,23,0.55);
+  border: 1px solid rgba(255,255,255,0.03);
+}

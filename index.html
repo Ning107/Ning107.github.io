@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>时间星星</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+  <div class="app">
+    <h2>⭐ 今日时间池</h2>
+
+    <div class="main">
+      <div class="left">
+        <div class="control">
+          切片时长：
+          <select id="slice">
+            <option value="15">15 分钟</option>
+            <option value="10">10 分钟</option>
+            <option value="30">30 分钟</option>
+          </select>
+        </div>
+
+        <div class="sky" id="sky"></div>
+      </div>
+
+      <div class="side">
+        <div class="event-creator">
+          <div class="ec-row">
+            <label>事件：</label>
+            <input id="eventName" placeholder="事件名称" />
+          </div>
+          <div class="ec-row">
+            <label>时间：</label>
+            <select id="startHour">
+              <option value="8">08:00</option>
+              <option value="9">09:00</option>
+              <option value="10">10:00</option>
+              <option value="11">11:00</option>
+              <option value="12">12:00</option>
+              <option value="13">13:00</option>
+              <option value="14">14:00</option>
+              <option value="15">15:00</option>
+              <option value="16">16:00</option>
+              <option value="17">17:00</option>
+              <option value="18">18:00</option>
+              <option value="19">19:00</option>
+              <option value="20">20:00</option>
+              <option value="21">21:00</option>
+            </select>
+            <select id="endHour">
+              <option value="9">09:00</option>
+              <option value="10">10:00</option>
+              <option value="11">11:00</option>
+              <option value="12">12:00</option>
+              <option value="13">13:00</option>
+              <option value="14">14:00</option>
+              <option value="15">15:00</option>
+              <option value="16">16:00</option>
+              <option value="17">17:00</option>
+              <option value="18">18:00</option>
+              <option value="19">19:00</option>
+              <option value="20">20:00</option>
+              <option value="21">21:00</option>
+              <option value="22">22:00</option>
+            </select>
+          </div>
+          <div class="ec-row">
+            <label>颜色：</label>
+            <input type="color" id="eventColor" value="#ffb703" />
+            <button id="createEvent">创建</button>
+          </div>
+        </div>
+
+        <div class="collectors" id="collectors"></div>
+
+        <!-- <div class="bucket">
+          🧺 已收集时间：<span id="total">0</span> 分钟
+        </div> -->
+      </div>
+    </div>
+
+    <div class="bucket">
+      🧺 已收集时间：<span id="total">0</span> 分钟
+    </div>
+  </div>
+
+  <script src="script.js">
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+          console.log('ServiceWorker 注册成功:', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker 注册失败:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
